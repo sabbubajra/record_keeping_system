@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block head-content %}
+    <style>
+    *p{
+        font-weight: bold;
+        font-style: italic;
+    }
+    </style>
+{% endblock %}
+{% block body-content %}
+
+    <div class="container">
+        <div class="jumbotron mb-0 font-italic" style="font-family:'Times New Roman'">
+        <img src="/media/{{detail.image}}" width="250" height="250" style="float: right;margin-right: 100px">
+            <div class="text-uppercase"><h3><strong>{{ detail.name}}</strong></h3></div>
+
+            <h4><b>Basic Information</b></h4><hr>
+            <h5><p><b>Semester:</b><span>{{detail.semester}}</span></p>
+                <p><b><i>Admission Date:</i></b><span>{{detail.admission_date }}</span></p></h5>
+            <h4><b>Personal Detail</b></h4><hr>
+            <h5><p><b><i>Email Address:</i></b><span>{{detail.email}}</span></p>
+            <p><b><i>Address:</i></b><span>{{detail.address }}</span></p>
+            <p><b><i>Gender:</i></b><span>{{ detail.gender }}</span></p>
+            <p><b><i>Date of Birth:</i></b><span>{{detail.date_of_birth }}</span></p>
+                <p><b><i>Mobile No:</i></b><span>{{detail.mobileno}}</span></p></h5>
+        </div>
+    </div>
+{% endblock %}

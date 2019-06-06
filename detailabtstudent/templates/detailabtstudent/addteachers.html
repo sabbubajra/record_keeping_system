@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block body-content %}
+    <div class="jumbotron mb-0" style="font-family: 'Times New Roman';font-size:20px">
+             <h3 class="text-center">Add New Teachers</h3>
+            <hr>
+
+                <form role="form" method="post" enctype="multipart/form-data" action="{% url 'detailabtstudent:addteachers' %}" style="width:100%;">
+                    <table class="mb-2" border="1" width="100%" cellpadding="20px">
+                     {% csrf_token %}
+                     <tr>
+                         <td><label for="name">Name:</label></td>
+                         <td><input type="text" class="form-control" id="name" placeholder="Enter name" required="required" name="name" /></td>
+                     </tr>
+                     <tr>
+                    <div class="form-group">
+                        <td><label for="email">Email Address:</label></td>
+                        <td><div class="input-group">
+                            <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" name="email"/>
+                        </div></td>
+                    </div>
+                     </tr>
+                     <tr>
+
+                     <div class="form-group">
+                         <td><label for="phone">Mobile no:</label></td>
+                         <td><div class="input-group">
+                            <input type="text" class="form-control" id="" placeholder="Enter mobile no" required="required" name="phone"/>
+                         </div></td>
+                    </div>
+                     </tr>
+                     <tr>
+                      <div class="form-group">
+                          <td><label for="image">Image:</label></td>
+                           <td><div class="input-group">
+                                <input type="file" class="form-control-file" name="file">
+                            </div>
+                           </td>
+                            </div>
+                     </tr>
+                 </table>
+                     <input class="btn btn-primary" type="submit" value="Submit">
+
+                 </form>
+
+
+        </div>
+
+{% endblock %}

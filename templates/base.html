@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title-content %}{% endblock %}</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/static/js/bootstrap.bundle.js"></script>
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    {% block head-content %}
+    {% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#10707f">
+        <a class="navbar-brand" style="color: snow;padding-right:450px;" href="#">
+            <img src="/static/images/logo.png" height="50" width="50" style="border-radius:100%">
+           <span style="font-size: 25px;">B.SC.CSIT RECORD KEEPING SYSTEM</span></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-expand navbar-nav justify-content-center">
+            {% if user.is_authenticated and user.is_staff %}
+                <li class="nav-item active" style="padding-left: 0px">
+                <a class="nav-link text-white" href="{%url "detailabtstudent:addstudent" %}">Add<br> Students</a>
+              </li>
+              <li class="nav-item"style="color: snow;">
+                <a class="nav-link text-white" href="{% url "detailabtstudent:studentlist" %}">View<br>Students</a>
+              </li>
+              <li class="nav-item" style="color: snow;">
+                <a class="nav-link text-white" href="{% url "detailabtstudent:addteachers" %}">Add<br>Teachers</a>
+              </li>
+               <li class="nav-item" style="color: snow;">
+                <a class="nav-link text-white" href="{% url "detailabtstudent:viewteachers" %}">View<br> Teachers</a>
+              </li>
+                <li class="nav-item" style="color: snow;">
+                    <a class="nav-link text-white" href="{% url "loginsignup:logout" %}">
+                      Logout
+                    </a>
+                </li>
+            {% else %}
+              <li class="nav-item active">
+                <a class="nav-link text-white" href="{%url "homepage:index" %}">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item"style="color: snow;">
+                <a class="nav-link text-white" href="{% url "notices:notices" %}">Notices</a>
+              </li>
+{#              <li class="nav-item" style="color: snow;">#}
+{#                <a class="nav-link text-white" href="{% url "loginsignup:signup" %}">Signup</a>#}
+{#              </li>#}
+
+                {% if user.is_authenticated %}
+                    <li class="nav-item" style="color: snow;">
+                    <a class="nav-link text-white" href="{% url "loginsignup:logout" %}">
+                      Logout
+                    </a>
+                {% else %}
+                  <li class="nav-item" style="color: snow;">
+                    <a class="nav-link text-white" href="{% url "loginsignup:login" %}">
+                      Login
+                    </a>
+        {#        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">#}
+        {#          <a class="dropdown-item" href="#">Admin</a>#}
+        {#          <a class="dropdown-item" href="#">Student</a>#}
+        {#        </div>#}
+              </li>
+                {% endif %}
+            {% endif %}
+
+            </ul>
+          </div>
+</nav>
+
+{% block body-content %}
+{% endblock %}
+
+
+<footer class="text-light mb-0" style="background-color: #10707f;bottom:0;width: 100%;">
+    <div class="container">
+        <div class="row pt-3">
+            <div class="col-md-3 col-lg-4 col-xl-3">
+                <h5>About</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <p class="mb-0">
+                   Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's.
+                </p>
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
+                <h5>Informations</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <ul class="list-unstyled">
+                    <li><a href="">Link 1</a></li>
+                    <li><a href="">Link 2</a></li>
+                    <li><a href="">Link 3</a></li>
+                    <li><a href="">Link 4</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto">
+                <h5>Others links</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <ul class="list-unstyled">
+                    <li><a href="">Link 1</a></li>
+                    <li><a href="">Link 2</a></li>
+                    <li><a href="">Link 3</a></li>
+                    <li><a href="">Link 4</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 col-lg-3 col-xl-3">
+                <h5>Contact</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-home mr-2"></i>Patan Dhoka,Lalitpur</li>
+                    <li><i class="fa fa-envelope mr-2"></i>01-5549133</li>
+                    <li><i class="fa fa-phone mr-2"></i>info@patancampus.edu.np</li>
+                    <li><i class="fa fa-print mr-2"></i> patancampus.edu.np/</li>
+                </ul>
+            </div>
+            <div class="col-12 copyright mt-3">
+                <p class="float-left">
+                    <a href="#">Back to top</a>
+                </p>
+                <p class="text-right text-muted">created with <i class="fa fa-heart"></i> by <a href="https://t-php.fr/43-theme-ecommerce-bootstrap-4.html"><i>t-php</i></a> | <span>v. 1.0</span></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block body-content %}
+<div class="container">
+    <h3>List of Teachers</h3>
+    <table class="table table-striped">
+        <tr>
+
+            <th>Photo</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact No</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for teacherslist in teachers_list %}
+            <tr>
+
+                <td><img src="/media/{{teacherslist.image}}" height="100px" width="100px" style="-webkit-border-radius: 100%;-moz-border-radius: 100%;border-radius: 100%;"></td>
+                <td>{{teacherslist.name }}</td>
+                <td>{{teacherslist.email}}</td>
+                <td>{{teacherslist.contactno}}</td>
+                 <td><a href="{% url 'detailabtstudent:teacherupdate' teacherslist.id %}" class="btn btn-warning btn-sm">
+                    <i class="fa fa-pencil" aria-hidden="true" style="color: black"></i>
+                    Edit</a>
+
+                <a href="{% url 'detailabtstudent:teacherdelete' teacherslist.id %}" class="btn btn-danger btn-sm">
+                    <i class="fa fa-trash" aria-hidden="true" style="color: black"></i>
+                    Delete
+                </a></td>
+            </tr>
+        {% endfor %}
+
+
+
+    </table>
+</div>
+{% endblock %}

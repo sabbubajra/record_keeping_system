@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block body-content %}
+<div class="container">
+        <h3>List of Students</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>Photo</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Semester</th>
+                <th>Admission Date</th>
+                <th>Actions</th>
+            </tr>
+
+            {% for studentlist in addstudent_list %}
+                <tr>
+                   <!-- <td></td>-->
+                    <td><img src="/media/{{studentlist.image}}" height="100px" width="100px" style="-webkit-border-radius: 100%;-moz-border-radius: 100%;border-radius: 100%;"></td>
+                    <td><a href="{% url 'detailabtstudent:studentdetail' studentlist.id %}">{{ studentlist.name }}</a></td>
+                    <td>{{ studentlist.email}}</td>
+                    <td>{{ studentlist.semester }}</td>
+                    <td>{{ studentlist.admission_date}}</td>
+                    <td><a href="{% url 'detailabtstudent:studentupdate' pk=studentlist.pk %}" class="btn btn-warning btn-sm">
+                    <i class="fa fa-pencil" aria-hidden="true" style="color: black"></i>
+                    Edit</a>
+
+                <a href="{% url 'detailabtstudent:studentdelete' pk=studentlist.pk %}" class="btn btn-danger btn-sm">
+                    <i class="fa fa-trash" aria-hidden="true" style="color: black"></i>
+                    Delete
+                </a></td>
+
+                </tr>
+            {% endfor %}
+        </table>
+
+</div>
+{% endblock %}

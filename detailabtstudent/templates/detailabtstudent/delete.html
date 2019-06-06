@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body-content %}
+    <div class="jumbotron mb-0" >
+     <a href="{% url 'detailabtstudent:studentlist' %}">Go Back To list</a>
+         <h1>Delete {{object}}?</h1>
+    <form method="post" style="margin-bottom:130px">
+    {% csrf_token %}
+        <button class="btn btn-danger">Are you sure you want to delete {{ object }}?</button>
+        <button class=" btn text-white rounded" type="submit" style="background-color: #4e555b;width:5%">Yes</button>
+        <button class=" btn rounded" style="background-color:#4e555b;width:5%"><a href="{% url 'detailabtstudent:viewteachers' %}" style="color: white;">No</a></button>
+
+    </form>
+     </div>
+{% endblock %}

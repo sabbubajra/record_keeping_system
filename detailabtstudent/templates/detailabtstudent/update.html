@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block body-content %}
+    <!--<div class="container align-content-center" style="font-family: 'Times New Roman' ">-->
+<div class="jumbotron mt-0 mb-0" style="font-family: 'Times New Roman'">
+    <h3 class="text-center"><strong>UPDATE FORM</strong></h3>
+    <a href="{% url 'detailabtstudent:studentlist' %}">Go Back To list</a>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <table  class="table-striped mt-2 mb-2" border="1" cellpadding="15px" cellspacing="20px" width="100%" style="font-size:18px;">
+           <form action="" method="post">
+                {% csrf_token %}
+                {{ form.as_table}}
+            </form>
+        </table>
+
+
+    <button type="submit" class="btn btn-info" href="">Update</button>
+    </form>
+</div>
+
+
+{% endblock %}

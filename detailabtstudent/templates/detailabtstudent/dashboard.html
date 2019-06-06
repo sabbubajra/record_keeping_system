@@ -1,0 +1,55 @@
+{% extends "base.html"%}
+{% block body-content %}
+
+        <div class="jumbotron mb-0">
+        <h3 class="text-center">Admin Dashboard</h3>
+        <hr>
+            <!--<div class="col-lg-8">-->
+            <table cellpadding="80" width="100%">
+                <tr>
+                    <td>
+                        <div class="addstudent" style="margin-left:200px;">
+                            <img src="/static/images/addstudent.jpg" style="border-radius: 50%;" height="200px" width="200px"><br>
+                            <div class="btn btn-info btn-lg btn-block" style="height:50px;width:200px;">
+                                <a href="{% url 'detailabtstudent:addstudent' %}" class="text-white">Add New Students</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="viewstudent" style="margin-left:150px">
+                            <img src="/static/images/viewstudent.jpg" style="border-radius: 50%;margin-right:20px;" height="200px" width="200px"><br>
+                            <div class="btn btn-info btn-lg btn-block" style="height:50px;width:200px;">
+                                <a href="{% url 'detailabtstudent:studentlist' %}" class="text-white">View Students</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="addteachers" style="margin-left:200px;">
+                            <img src="/static/images/addteach.png" style="border-radius: 50%;" height="200px" width="200px"><br>
+                             <div class="btn btn-info btn-lg btn-block" style="height: 50px;width:200px;">
+                                <a href="{% url 'detailabtstudent:addteachers' %}" class="text-white">Add New Teachers</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="viewteacher"style="margin-left:150px">
+                            <img src="/static/images/teachers.png" style="border-radius: 50%;" height="200px" width="200px"><br>
+                             <div class="btn btn-info btn-lg btn-block" style="height:50px;width:200px;">
+                                <a href="{% url 'detailabtstudent:viewteachers' %}" class="text-white">View Teachers</a>
+                             </div>
+                        </div>
+                    </td>
+                </tr>
+                <!--<tr>
+                    <div class="btn btn-info btn-lg btn-block" style="margin-left:25%;margin-right: 10%">
+                        <a href="{% url 'detailabtstudent:addnotice' %}" class="text-white">Add Notices</a>
+                    </div>
+                </tr>-->
+            </table>
+
+            </div>
+        </div>
+
+{% endblock %}

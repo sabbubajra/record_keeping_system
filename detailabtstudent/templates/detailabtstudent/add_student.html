@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block body-content %}
+
+        <div class="jumbotron mb-0" style="font-family: 'Times New Roman';font-size:20px">
+            <h3 class="text-center">Add New Student</h3>
+            <hr>
+            <div class="col-md-12">
+
+
+                 <form role="form" action="{% url 'detailabtstudent:addstudent' %}" method="post" enctype="multipart/form-data" style="width:100%">
+                      <table class="mb-2 table-striped" border="1" width="100%" cellpadding="20px" cellspacing="0px">
+                                {% csrf_token %}
+
+                        <tr>
+                            <td><label for="name">Name:</label></td>
+                             <td><input type="text" class="form-control" id="name" placeholder="Enter name" required="required" name="name" />
+                             </td>
+                        </tr>
+                        <tr>
+                        <div class="form-group">
+                            <td><label for="email">Email Address:</label></td>
+                            <td><div class="input-group">
+                                <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" name="email"/>
+                            </div></td>
+                         </div>
+                        </tr>
+                          <tr>
+                              <div class="form-group">
+                                 <td><label for="address">Address:</label></td>
+                                <td><div class="input-group">
+                                    <input type="text" class="form-control" id="address" placeholder="Enter address" required="required" name="address"/>
+                                </div></td>
+                              </div>
+                          </tr>
+                          <tr>
+                            <div class="form-group">
+                                 <td><label for="phone">Mobile no:</label></td>
+                                <td><div class="input-group">
+                                    <input type="text" class="form-control" id="" placeholder="Enter mobile no" required="required" name="phone"/>
+                                </div></td>
+                            </div></tr>
+                        <tr>
+                            <div class="form-group">
+                             <td><label for="gender">Gender:</label></td>
+                             <td><div class="form-check">
+                                  <input class="form-check-input" type="radio" name="gender" id="male" value="Male">
+                                  <label class="form-check-label mr-4" for="Male">Male</label>
+                                 <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
+                                 <label class="form-check-label" for="Female">Female</label>
+                             </div></td>
+                            </div>
+                        </tr>
+                          <tr>
+                              <div class="form-group">
+                                  <td> <label for="dob">Date of Birth:</label></td>
+                                   <td><div class="input-group">
+                                    <input type="date" id="dob" required="required" name="dob" placeholder="DD/MM/YYYY">
+                                   </div></td>
+                              </div>
+                          </tr>
+                          <tr>
+                      <div class="form-group">
+                          <td><label for="admisssion">Admission Date:</label></td>
+                            <td><div class="input-group">
+                            <input type="date" id="admisssion" required="required" name="admission">
+                            </div></td>
+                      </div>
+
+                          </tr>
+                          <tr>
+
+                              <div class="form-group">
+                                 <td><label for="semester">Semester:</label></td>
+                                    <td><select id="semester" name="semester" class="form-control" required="required">
+                                        <option value="Select" selected="">--Select--</option>
+                                        <option value="First" selected="">First</option>
+                                        <option value="Second">Second</option>
+                                        <option value="Third">Third</option>
+                                        <option value="Fourth">Fourth</option>
+                                        <option value="Fifth">Fifth</option>
+                                        <option value="Sixth">Sixth</option>
+                                        <option value="Seventh">Seventh</option>
+                                        <option value="Eighth">Eight</option>
+                                    </select></td>
+                              </div>
+                          </tr>
+                          <tr>
+                            <div class="form-group">
+                                 <td> <label for="image">Image:</label></td>
+                                 <td><input type="file" class="form-control-file" name="image"></td>
+                            </div>
+                          </tr>
+                     </table>
+                     <input class="btn btn-primary" type="submit" value="Submit">
+                 </form>
+            </div>
+        </div>
+
+{% endblock %}

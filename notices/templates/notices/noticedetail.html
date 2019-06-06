@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title-content %}Notice Detail{% endblock %}
+{%block body-content %}
+    <h3>{{ noticedetail.title }}</h3>
+    <p>{{ noticedetail.created_date.date}}</p>
+    <p>{{ noticedetail.description }}</p>
+    <p align="center"><img src="/media/{{ noticedetail.image }}"> </p>
+{% endblock %}
